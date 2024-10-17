@@ -30,9 +30,9 @@ public class Controller {
     }
 
 
-    @GetMapping("/ai/embedding")
-    public Map<String, Object> embed() throws IOException {
-        embeddingDocument.embedDocuments();
+    @GetMapping("/ai/train/embedding")
+    public Map<String, Object> embed(@RequestParam String filename) throws IOException {
+        embeddingDocument.embedDocuments(filename);
         return Map.of("status", "SUCCESS");
     }
 

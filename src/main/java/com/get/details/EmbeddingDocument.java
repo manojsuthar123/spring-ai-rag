@@ -26,8 +26,8 @@ public class EmbeddingDocument {
         this.resourceLoader = resourceLoader;
     }
 
-    public void embedDocuments() throws IOException {
-        Resource resource = resourceLoader.getResource("classpath:filescad.pdf");
+    public void embedDocuments(String filename) throws IOException {
+        Resource resource = resourceLoader.getResource("classpath:"+filename);
         Path path = Paths.get(resource.getURI());
         TikaDocumentReader documentReader = new TikaDocumentReader(path.toUri().toString());
         List<Document> documents = documentReader.get();
